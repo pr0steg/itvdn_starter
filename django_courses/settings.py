@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "YouWillNeverGuesssssssssss!!!!!-(t7(hayev0u9(e!mcn6ex$%0z(n8qvs7uto6)0)ie@rz^0tnj-(t7(hayev0u9(e!mcn6ex$%0z(n8qvs7uto6)0)ie@rz^0tnj*"
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -112,11 +112,11 @@ DATABASES = {
         # # "NAME": BASE_DIR / "db.sqlite3",
         # "NAME": str(os.path.join(BASE_DIR, "db.sqlite3"))
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "course",
-        "USER": "itvdn",
-        "PASSWORD": "itvdn",
-        "HOST": "127.0.0.1",
-        "PORT": "5432"
+        "NAME": os.getenv('DB_NAME'),
+        "USER": os.getenv('DB_USER'),
+        "PASSWORD": os.getenv('DB_PASSWORD'),
+        "HOST": os.getenv('DB_HOST'),
+        "PORT": os.getenv('DB_PORT')
     }
 }
 
